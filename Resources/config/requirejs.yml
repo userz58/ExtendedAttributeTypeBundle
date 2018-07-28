@@ -1,0 +1,53 @@
+config:
+    paths:
+        # Features attribute type
+        u58-extended-attribute-type/features-field:                   u58extendedattributetype/js/product/field/features-field
+        u58-extended-attribute-type/templates/product/field/features: u58extendedattributetype/templates/product/field/features.html
+        u58-extended-attribute-type/templates/product/field/feature:  u58extendedattributetype/templates/product/field/feature.html
+
+        # Image collection attribute type
+        u58-extended-attribute-type/image-collection-field:                   u58extendedattributetype/js/product/field/image-collection-field
+        u58-extended-attribute-type/templates/product/field/images:           u58extendedattributetype/templates/product/field/images.html
+        u58-extended-attribute-type/templates/product/field/image:            u58extendedattributetype/templates/product/field/image.html
+        #oro/datagrid/image-collection-cell:                                   u58extendedattributetype/js/datagrid/cell/image-collection-cell
+        #u58-extended-attribute-type/templates/datagrid/cell/image-collection: u58extendedattributetype/templates/datagrid/cell/image-collection-cell.html
+
+        # Youtube video attribute type
+        u58-extended-attribute-type/youtube-field:                    u58extendedattributetype/js/product/field/youtube-field
+        u58-extended-attribute-type/templates/product/field/youtube:  u58extendedattributetype/templates/product/field/youtube.html
+
+        # Country attribute type
+        u58-extended-attribute-type/country-field:                    u58extendedattributetype/js/product/field/country-field
+        u58-extended-attribute-type/templates/product/field/country:  u58extendedattributetype/templates/product/field/country.html
+
+    config:
+        pim/form/common/attributes/create-button:
+            attribute_icons:
+                u58_catalog_features: features
+                u58_catalog_image_collection: images
+                u58_catalog_youtube: youtube
+                u58_catalog_country: country
+
+        pim/attribute-edit-form/type-specific-form-registry:
+            formNames:
+                u58_catalog_features:
+                    create: u58-attribute-form-features
+                    edit:   u58-attribute-form-features
+                u58_catalog_image_collection:
+                    create: u58-attribute-form-image-collection
+                    edit:   u58-attribute-form-image-collection
+                u58_catalog_youtube:
+                    create: u58-attribute-form-youtube
+                    edit:   u58-attribute-form-youtube
+                u58_catalog_country:
+                    create: u58-attribute-form-country
+                    edit:   u58-attribute-form-country
+
+        pim/fetcher-registry:
+            fetchers:
+                country:
+                    module: pim/base-fetcher
+                    options:
+                        urls:
+                            list: u58_extended_attribute_type_country_rest_list
+                            get:  u58_extended_attribute_type_country_rest_get

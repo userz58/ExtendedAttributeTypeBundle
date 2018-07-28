@@ -1,0 +1,14 @@
+parameters:
+    u58_extended_attribute_type.completeness.checker.features.class: U58\Bundle\ExtendedAttributeTypeBundle\Completeness\Checker\FeaturesCompleteChecker
+    u58_extended_attribute_type.completeness.checker.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\Completeness\Checker\ImageCollectionCompleteChecker
+
+services:
+    u58_extended_attribute_type.completeness.checker.features:
+        class: '%u58_extended_attribute_type.completeness.checker.features.class%'
+        tags:
+            - { name: pim_catalog.completeness.checker.product_value, priority: 100 }
+
+    u58_extended_attribute_type.completeness.checker.image_collection:
+        class: '%u58_extended_attribute_type.completeness.checker.image_collection.class%'
+        tags:
+            - { name: pim_catalog.completeness.checker.product_value, priority: 100 }

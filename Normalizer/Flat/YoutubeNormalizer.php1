@@ -1,0 +1,33 @@
+<?php
+
+namespace U58\Bundle\ExtendedAttributeTypeBundle\Normalizer\Flat;
+
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Pim\Bundle\VersioningBundle\Normalizer\Flat\AbstractValueDataNormalizer;
+use U58\Bundle\ExtendedAttributeTypeBundle\AttributeType\YoutubeType;
+
+/**
+ *    before:  $data = 'lt96bvKp9Ug'
+ *    after: $data = 'https://youtu.be/lt96bvKp9Ug'
+ */
+class YoutubeNormalizer extends AbstractValueDataNormalizer
+{
+    /** @var string[] */
+    protected $supportedFormats = ['flat'];
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function doNormalize($object, $format = null, array $context = [])
+    {
+        return YoutubeType::LINK . $object;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function supportsNormalization($data, $format = null)
+    {
+        return $data instanceof FileInfoInterface && in_array($format, $this->supportedFormats);
+    }
+}

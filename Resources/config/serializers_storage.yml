@@ -1,0 +1,18 @@
+parameters:
+    u58_catalog.normalizer.storage.feature.class: U58\Bundle\ExtendedAttributeTypeBundle\Normalizer\Storage\FeatureNormalizer
+    u58_catalog.normalizer.storage.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\Normalizer\Storage\ImageCollectionNormalizer
+
+services:
+    u58_catalog.normalizer.storage.feature:
+        class: '%u58_catalog.normalizer.storage.feature.class%'
+        arguments:
+            - '@u58_catalog.normalizer.standard.feature'
+        tags:
+            - { name: pim_serializer.normalizer, priority: 90 }
+
+    u58_catalog.normalizer.storage.image_collection:
+        class: '%u58_catalog.normalizer.storage.image_collection.class%'
+        arguments:
+            - '@u58_catalog.normalizer.standard.image_collection'
+        tags:
+            - { name: pim_serializer.normalizer, priority: 90 }

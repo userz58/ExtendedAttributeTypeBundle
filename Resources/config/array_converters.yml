@@ -1,0 +1,36 @@
+parameters:
+    u58_extended_attribute_type.array_converter.flat_to_standard.features.class: U58\Bundle\ExtendedAttributeTypeBundle\ArrayConverter\FlatToStandard\Product\ValueConverter\FeaturesConverter
+    u58_extended_attribute_type.array_converter.standard_to_flat.features.class: U58\Bundle\ExtendedAttributeTypeBundle\ArrayConverter\StandardToFlat\Product\ValueConverter\FeaturesConverter
+    u58_extended_attribute_type.array_converter.flat_to_standard.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\ArrayConverter\FlatToStandard\Product\ValueConverter\ImageCollectionConverter
+    u58_extended_attribute_type.array_converter.standard_to_flat.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\ArrayConverter\StandardToFlat\Product\ValueConverter\ImageCollectionConverter
+
+services:
+    u58_extended_attribute_type.array_converter.standard_to_flat.product.value_converter.features:
+        class: '%u58_extended_attribute_type.array_converter.standard_to_flat.features.class%'
+        arguments:
+            - '@pim_connector.array_converter.flat_to_standard.product.attribute_columns_resolver'
+            - ['u58_catalog_features']
+        tags:
+            - { name: 'pim_connector.array_converter.standard_to_flat.product.value_converter' }
+
+    u58_extended_attribute_type.array_converter.flat_to_standard.product.value_converter.features:
+        class: '%u58_extended_attribute_type.array_converter.flat_to_standard.features.class%'
+        arguments:
+            - ['u58_catalog_features']
+        tags:
+            - { name: 'pim_connector.array_converter.flat_to_standard.product.value_converter' }
+
+    u58_extended_attribute_type.array_converter.standard_to_flat.product.value_converter.image_collection:
+        class: '%u58_extended_attribute_type.array_converter.standard_to_flat.image_collection.class%'
+        arguments:
+            - '@pim_connector.array_converter.flat_to_standard.product.attribute_columns_resolver'
+            - ['u58_catalog_image_collection']
+        tags:
+            - { name: 'pim_connector.array_converter.standard_to_flat.product.value_converter' }
+
+    u58_extended_attribute_type.array_converter.flat_to_standard.product.value_converter.image_collection:
+        class: '%u58_extended_attribute_type.array_converter.flat_to_standard.image_collection.class%'
+        arguments:
+            - ['u58_catalog_image_collection']
+        tags:
+            - { name: 'pim_connector.array_converter.flat_to_standard.product.value_converter' }

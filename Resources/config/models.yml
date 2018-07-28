@@ -1,0 +1,4 @@
+parameters:
+    u58_catalog.model.feature.class: U58\Bundle\ExtendedAttributeTypeBundle\Model\Feature
+    u58_catalog.model.features.class: U58\Bundle\ExtendedAttributeTypeBundle\Model\Features
+    u58_catalog.model.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\Model\ImageCollection

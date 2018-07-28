@@ -1,0 +1,26 @@
+parameters:
+    u58_extended_attribute_type.provider.field.features.class: U58\Bundle\ExtendedAttributeTypeBundle\Provider\Field\FeaturesProvider
+    u58_extended_attribute_type.provider.field.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\Provider\Field\ImageCollectionProvider
+    u58_extended_attribute_type.provider.field.youtube.class: U58\Bundle\ExtendedAttributeTypeBundle\Provider\Field\YoutubeProvider
+    u58_extended_attribute_type.provider.field.country.class: U58\Bundle\ExtendedAttributeTypeBundle\Provider\Field\CountryProvider
+
+services:
+    u58_extended_attribute_type.provider.field.features:
+        class: '%u58_extended_attribute_type.provider.field.features.class%'
+        tags:
+            - { name: pim_enrich.provider.field, priority: 100 }
+
+    u58_extended_attribute_type.provider.field.image_collection:
+        class: '%u58_extended_attribute_type.provider.field.image_collection.class%'
+        tags:
+            - { name: pim_enrich.provider.field, priority: 100 }
+
+    u58_extended_attribute_type.provider.field.youtube:
+        class: '%u58_extended_attribute_type.provider.field.youtube.class%'
+        tags:
+            - { name: pim_enrich.provider.field, priority: 100 }
+
+    u58_extended_attribute_type.provider.field.country:
+        class: '%u58_extended_attribute_type.provider.field.country.class%'
+        tags:
+            - { name: pim_enrich.provider.field, priority: 100 }

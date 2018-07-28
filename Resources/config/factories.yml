@@ -1,0 +1,44 @@
+parameters:
+    u58_catalog.factory.value.features.class: U58\Bundle\ExtendedAttributeTypeBundle\Factory\Value\FeaturesValueFactory
+    u58_catalog.factory.value.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\Factory\Value\ImageCollectionValueFactory
+
+services:
+    u58_catalog.factory.value.features:
+        class: '%u58_catalog.factory.value.features.class%'
+        public: false
+        arguments:
+            - '%u58_catalog.model.features.class%'
+            - '%u58_catalog.model.feature.class%'
+            - '%u58_catalog.entity.value.features.class%'
+            - 'u58_catalog_features'
+            - '@akeneo_file_storage.repository.file_info'
+        tags:
+            - { name: pim_catalog.factory.value }
+
+    u58_catalog.factory.value.image_collection:
+        class: '%u58_catalog.factory.value.image_collection.class%'
+        public: false
+        arguments:
+            - '@akeneo_file_storage.repository.file_info'
+            - '%u58_catalog.entity.value.image_collection.class%'
+            - 'u58_catalog_image_collection'
+        tags:
+            - { name: pim_catalog.factory.value }
+
+    u58_catalog.factory.value.youtube:
+        class: '%pim_catalog.factory.value.scalar.class%'
+        public: false
+        arguments:
+            - '%pim_catalog.entity.value.scalar.class%'
+            - 'u58_catalog_youtube'
+        tags:
+            - { name: pim_catalog.factory.value }
+
+    u58_catalog.factory.value.country:
+        class: '%pim_catalog.factory.value.scalar.class%'
+        public: false
+        arguments:
+            - '%pim_catalog.entity.value.scalar.class%'
+            - 'u58_catalog_country'
+        tags:
+            - { name: pim_catalog.factory.value }

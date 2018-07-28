@@ -1,0 +1,4 @@
+parameters:
+    u58_catalog.entity.value.features.class: U58\Bundle\ExtendedAttributeTypeBundle\Value\FeaturesValue
+    u58_catalog.entity.value.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\Value\ImageCollectionValue
+

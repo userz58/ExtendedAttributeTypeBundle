@@ -1,0 +1,6 @@
+css:
+    u58_extended_attribute_type:
+        - bundles/u58extendedattributetype/css/attribute_icons.less
+        - bundles/u58extendedattributetype/css/features.less
+        - bundles/u58extendedattributetype/css/images.less
+        - bundles/u58extendedattributetype/css/youtube.less

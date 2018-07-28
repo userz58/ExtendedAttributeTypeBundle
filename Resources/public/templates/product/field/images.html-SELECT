@@ -1,0 +1,13 @@
+<div class="AknFormContainer AknFormContainer--expanded">
+    <% if (editMode === 'edit') { %>
+    <div class="AknButtonList AknButtonList--right">
+        <div class="AknButton AknButton--small upload">
+            <input class="AknMediaField-fileUploaderInput" type="file" multiple data-locale="<%- locale %>" data-scope="<%- scope %>" />
+            <%- _.__('pim_enrich.form.product.tab.attributes.image_collection.upload')%>
+        </div>
+        <div class="AknButton AknButton--small select"><%- _.__('pim_enrich.form.product.tab.attributes.image_collection.select')%></div>
+    </div>
+    <% } %>
+    <ul class="U58ImageCollection">
+    </ul>
+</div>

@@ -1,0 +1,65 @@
+parameters:
+    u58_catalog.updater.setter.features_value.class: U58\Bundle\ExtendedAttributeTypeBundle\Updater\Setter\FeaturesAttributeSetter
+    u58_catalog.updater.setter.image_collection_value.class: U58\Bundle\ExtendedAttributeTypeBundle\Updater\Setter\ImageCollectionAttributeSetter
+    #u58_catalog.updater.copier.features_value.class: U58\Bundle\ExtendedAttributeTypeBundle\Updater\Copier\FeaturesAttributeSetter
+
+services:
+    u58_catalog.updater.setter.features_value:
+        class: '%u58_catalog.updater.setter.features_value.class%'
+        arguments:
+            - '@pim_catalog.builder.entity_with_values'
+            - '@akeneo_file_storage.file_storage.file.file_storer'
+            - '@akeneo_file_storage.repository.file_info'
+            - ['u58_catalog_features']
+        tags:
+            - { name: 'pim_catalog.updater.setter' }
+
+    u58_catalog.updater.setter.image_collection_value:
+        class: '%u58_catalog.updater.setter.image_collection_value.class%'
+        arguments:
+            - '@pim_catalog.builder.entity_with_values'
+            - '@akeneo_file_storage.file_storage.file.file_storer'
+            - '@akeneo_file_storage.repository.file_info'
+            - ['u58_catalog_image_collection']
+        tags:
+            - { name: 'pim_catalog.updater.setter' }
+
+    u58_catalog.updater.setter.text_value:
+        class: '%pim_catalog.updater.setter.value.class%'
+        parent: pim_catalog.updater.setter.abstract
+        arguments:
+            - ['u58_catalog_youtube', 'u58_catalog_country']
+        tags:
+            - { name: 'pim_catalog.updater.setter' }
+
+    #u58_catalog.updater.setter.youtube_value:
+    #    class: '%pim_catalog.updater.setter.value.class%'
+    #    parent: pim_catalog.updater.setter.abstract
+    #    arguments:
+    #        - ['u58_catalog_youtube']
+    #    tags:
+    #        - { name: 'pim_catalog.updater.setter' }
+    #
+    #u58_catalog.updater.setter.country_value:
+    #    class: '%pim_catalog.updater.setter.value.class%'
+    #    parent: pim_catalog.updater.setter.abstract
+    #    arguments:
+    #        - ['u58_catalog_country']
+    #    tags:
+    #        - { name: 'pim_catalog.updater.setter' }
+
+
+    # copier
+    #u58_catalog.updater.copier.youtube_value:
+    #    class: '%pim_catalog.updater.copier.value.class%'
+    #    parent: pim_catalog.updater.copier.abstract
+    #    arguments:
+    #        - '@pim_serializer'
+    #        - ['u58_catalog_youtube']
+    #        - ['u58_catalog_youtube']
+    #    tags:
+    #        - { name: 'pim_catalog.updater.copier' }
+
+    # adder
+
+    # remover

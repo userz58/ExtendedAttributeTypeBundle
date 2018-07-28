@@ -1,0 +1,16 @@
+U58\Bundle\ExtendedAttributeTypeBundle\Model\Feature:
+    properties:
+        fileInfo:
+            - Type:
+                type: Akeneo\Component\FileStorage\Model\FileInfoInterface
+            - NotBlank: ~
+        title:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                max: 100
+        description:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                max: 255

@@ -1,0 +1,28 @@
+pim_enrich:
+    entity:
+        attribute:
+            type:
+                u58_catalog_features: Features
+                u58_catalog_image_collection: Image collection
+                u58_catalog_youtube: Youtube video
+                u58_catalog_country: Country
+    form:
+        product:
+            tab:
+                attributes:
+                    feature:
+                        add_item: Add item
+                        title: Title
+                        description: Description
+                    image_collection:
+                        upload: Upload
+                        select: Select
+                    youtube:
+                        placeholder: Insert Youtube link here
+        attribute:
+            tab:
+                properties:
+                    label:
+                        min_number_of_list_items: Minimum number of list items
+                        max_number_of_list_items: Maximum number of list items
+                        title_max_characters: Title maximum length

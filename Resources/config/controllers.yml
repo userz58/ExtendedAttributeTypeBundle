@@ -1,0 +1,8 @@
+parameters:
+    u58_extended_attribute_type.controller.rest.country.class: U58\Bundle\ExtendedAttributeTypeBundle\Controller\Rest\CountryController
+
+services:
+    u58_extended_attribute_type.controller.rest.country:
+        class: '%u58_extended_attribute_type.controller.rest.country.class%'
+        arguments:
+            - '@pim_user.context.user'

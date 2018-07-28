@@ -1,0 +1,22 @@
+<% if (!value.data || 0 === value.data.length) { %>
+<input class="AknTextField U58Youtube-input" type="text" <%- editMode === 'view' ? 'disabled' : '' %> placeholder="<%- _.__('pim_enrich.form.product.tab.attributes.youtube.placeholder')%>" />
+<% if (editMode !== 'view') { %>
+<div class="U58Youtube-iconsContainer">
+    <button class="AknIconButton AknIconButton--grey search-video"><i class="icon-search"></i></button>
+</div>
+<% } %>
+<% } else { %>
+<div class="AknFormContainer AknFormContainer--expanded">
+    <div class="AknFieldContainer-inputContainer">
+        <input class="AknTextField U58Youtube-input" type="text" value="https://youtu.be/<%= value.data %>" disabled />
+        <% if (editMode !== 'view') { %>
+        <div class="U58Youtube-iconsContainer">
+            <button class="AknIconButton AknIconButton--important clear-input"><i class="icon-trash"></i></button>
+        </div>
+        <% } %>
+    </div>
+    <div class="U58Youtube-previewContainer">
+        <iframe src="https://www.youtube.com/embed/<%= value.data %>?rel=0&autoplay=0&fs=0&color=white" frameborder="0" allow="encrypted-media"></iframe>
+    </div>
+</div>
+<% } %>

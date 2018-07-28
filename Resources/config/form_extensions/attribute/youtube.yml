@@ -1,0 +1,5 @@
+extensions:
+    u58-attribute-form-youtube:
+        module: pim/common/simple-view
+        config:
+            template: pim/template/common/drop-zone

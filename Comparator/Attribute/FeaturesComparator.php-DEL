@@ -1,0 +1,97 @@
+<?php
+
+namespace  U58\Bundle\ExtendedAttributeTypeBundle\Comparator\Attribute;
+
+use Pim\Component\Catalog\Comparator\ComparatorInterface;
+use Akeneo\Component\FileStorage\Repository\FileInfoRepositoryInterface;
+
+class FeaturesComparator implements ComparatorInterface
+{
+    /** @var  FileInfoRepositoryInterface */
+    protected $repository;
+
+    /** @var array */
+    protected $types;
+
+    /**
+     * @param array                   $types
+     * @param FileInfoRepositoryInterface $repository
+     */
+    public function __construct(array $types, FileInfoRepositoryInterface $repository)
+    {
+        $this->types = $types;
+        $this->repository = $repository;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function supports($type)
+    {
+        return in_array($type, $this->types);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function compare($data, $originals)
+    {
+        $default = ['locale' => null, 'scope' => null, 'data' => null];
+        $originals = array_merge($default, $originals);
+
+        if (!isset($data['data']) && !isset($originals['data'])) {
+            return null;
+        }
+
+        $originalList = [];
+        if (is_array($originals['data'])) {
+            foreach ($originals['data'] as $item) {
+                $hash = null;
+                if (isset($item['filePath'])) {
+                    $originalFile = $this->repository->findOneByIdentifier($item['filePath']);
+                    $hash = $originalFile->getHash();
+                }
+                $originalList[] = [
+                    'hash'        => $hash,
+                    'title'       => $item['title'],
+                    'description' => $item['description']
+                ];
+            }
+        }
+
+        $dataList = [];
+        foreach ($data['data'] as $item) {
+            $hash = null;
+            if (isset($item['filePath'])) {
+                if(is_file($item['filePath'])) {
+                    $hash = $this->getHashFile($item['filePath']);
+                }
+                else {
+                    $file = $this->repository->findOneByIdentifier($item['filePath']);
+                    $hash = $file->getHash();
+                }
+            }
+            $dataList[] = [
+                'hash'        => $hash,
+                'title'       => $item['title'],
+                'description' => $item['description']
+            ];
+        }
+
+        if ($originalList !== $dataList) {
+            return $data;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param string $filePath
+     *
+     * @return null|string
+     */
+    protected function getHashFile($filePath = null)
+    {
+        return null !== $filePath ? sha1_file($filePath) : null;
+    }
+}

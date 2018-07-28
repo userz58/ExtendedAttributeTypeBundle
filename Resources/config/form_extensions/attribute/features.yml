@@ -1,0 +1,66 @@
+extensions:
+    u58-attribute-form-features:
+        module: pim/common/simple-view
+        config:
+            template: pim/template/common/drop-zone
+
+    u58-attribute-form-features-validation-params:
+        module: pim/common/simple-view
+        parent: u58-attribute-form-features
+        targetZone: content
+        position: 110
+        config:
+            template: pim/template/form/tab/section
+            templateParams:
+                sectionTitle: pim_enrich.form.attribute.tab.properties.section.validation
+                dropZone: content
+
+    u58-attribute-form-features-validation-params-number-min:
+        module: pim/form/common/fields/text
+        parent: u58-attribute-form-features-validation-params
+        targetZone: content
+        position: 100
+        config:
+            fieldName: number_min
+            label: pim_enrich.form.attribute.tab.properties.label.min_number_of_list_items
+            defaultValue: 0
+
+    u58-attribute-form-features-validation-params-number-max:
+        module: pim/form/common/fields/text
+        parent: u58-attribute-form-features-validation-params
+        targetZone: content
+        position: 110
+        config:
+            fieldName: number_max
+            label: pim_enrich.form.attribute.tab.properties.label.max_number_of_list_items
+            defaultValue: 12
+
+    u58-attribute-form-features-validation-params-allowed-extensions:
+        module: pim/form/common/fields/select
+        parent: u58-attribute-form-features-validation-params
+        targetZone: content
+        position: 120
+        config:
+            fieldName: allowed_extensions
+            label: pim_enrich.form.attribute.tab.properties.label.allowed_extensions
+            choices: '%pim_catalog_image_allowed_extensions%'
+            isMultiple: true
+            defaultValue: []
+
+    u58-attribute-form-features-validation-params-max-file-size:
+        module: pim/form/common/fields/text
+        parent: u58-attribute-form-features-validation-params
+        targetZone: content
+        position: 130
+        config:
+            fieldName: max_file_size
+            label: pim_enrich.form.attribute.tab.properties.label.max_file_size
+
+    u58-attribute-form-features-validation-params-max-characters:
+        module: pim/form/common/fields/text
+        parent: u58-attribute-form-features-validation-params
+        targetZone: content
+        position: 140
+        config:
+            fieldName: max_characters
+            label: pim_enrich.form.attribute.tab.properties.label.title_max_characters

@@ -1,0 +1,32 @@
+<li class="U58ImageCollection--item">
+    <% if (!filePath) { %>
+        <div class="AknMediaField-thumb file">
+            <span title="upload icon" class="U58ImageCollection--uploadIcon"/>
+        </div>
+        <div class="AknMediaField-emptyContainer">
+            <div class="AknMediaField-progress AknProgress AknProgress--micro progress">
+                <div class="AknProgress-bar bar"></div>
+            </div>
+        </div>
+    <% } else { %>
+        <% mediaThumbnailUrl = mediaUrlGenerator.getMediaShowUrl(filePath, 'thumbnail_small') %>
+        <% mediaPreviewUrl = mediaUrlGenerator.getMediaShowUrl(filePath, 'preview') %>
+        <% mediaDownloadUrl = mediaUrlGenerator.getMediaDownloadUrl(filePath) %>
+        <% if (mediaThumbnailUrl != null) { %>
+        <div class="AknMediaField-thumb file">
+            <img src="<%- mediaThumbnailUrl %>" class="AknMediaField-image"/>
+        </div>
+        <% } else { %>
+        <div class="AknMediaField-thumb file">
+            <span title="upload icon" class="AknMediaField-uploadIcon"/>
+        </div>
+        <% } %>
+        <div class="AknButtonList AknButtonList--centered">
+            <span class="AknButtonList-item AknIconButton AknIconButton--small AknIconButton--grey preview"><i class="icon icon-eye-open"></i></span>
+            <a href="<%- mediaDownloadUrl %>" target="_blank" class="AknButtonList-item AknIconButton AknIconButton--small AknIconButton--grey download-file"><i class="icon-cloud-download"></i></a>
+            <% if (editMode === 'edit') { %>
+            <span class="AknButtonList-item AknIconButton AknIconButton--small AknIconButton--grey remove"><i class="icon-trash"></i></span>
+            <% } %>
+        </div>
+    <% } %>
+</li>

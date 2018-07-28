@@ -1,0 +1,5 @@
+attribute_fields:
+    u58_catalog_features:         u58-extended-attribute-type/features-field
+    u58_catalog_image_collection: u58-extended-attribute-type/image-collection-field
+    u58_catalog_youtube:          u58-extended-attribute-type/youtube-field
+    u58_catalog_country:          u58-extended-attribute-type/country-field

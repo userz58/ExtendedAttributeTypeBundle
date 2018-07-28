@@ -1,0 +1,5 @@
+extensions:
+    u58-attribute-form-country:
+        module: pim/common/simple-view
+        config:
+            template: pim/template/common/drop-zone

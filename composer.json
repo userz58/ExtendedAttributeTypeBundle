@@ -1,0 +1,28 @@
+{
+    "name": "userz58/pim-extended-attribute-type",
+    "description": "Provides new attributes types for Akeneo PIM CE",
+    "keywords": ["pim", "akeneo", "attribute", "images", "collection"],
+    "type": "symfony-bundle",
+    "license": "OSL-3.0",
+    "version": "0.1",
+    "authors": [
+        {
+            "name": "U58"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/akeneo/pim-community-dev.git"
+        }
+    ],
+    "require": {
+        "akeneo/pim-community-dev": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "U58\\Bundle\\ExtendedAttributeTypeBundle\\": ""
+        }
+    },
+    "minimum-stability": "dev"
+}

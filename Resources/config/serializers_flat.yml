@@ -1,0 +1,18 @@
+parameters:
+    u58_catalog.normalizer.flat.feature.class: U58\Bundle\ExtendedAttributeTypeBundle\Normalizer\Flat\FeatureNormalizer
+    u58_catalog.normalizer.flat.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\Normalizer\Flat\ImageCollectionNormalizer
+
+services:
+    u58_catalog.normalizer.flat.feature:
+        class: '%u58_catalog.normalizer.flat.feature.class%'
+        arguments:
+            - '@u58_catalog.normalizer.standard.feature'
+        tags:
+            - { name: pim_versioning.serializer.normalizer, priority: 90 }
+
+    u58_catalog.normalizer.flat.image_collection:
+        class: '%u58_catalog.normalizer.flat.image_collection.class%'
+        arguments:
+            - '@u58_catalog.normalizer.standard.image_collection'
+        tags:
+            - { name: pim_versioning.serializer.normalizer, priority: 90 }

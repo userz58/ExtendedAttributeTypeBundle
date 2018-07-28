@@ -1,0 +1,9 @@
+u58_extended_attribute_type_country_rest_list:
+    path: /rest
+    defaults: { _controller: u58_extended_attribute_type.controller.rest.country:listAction }
+    methods: [GET]
+
+u58_extended_attribute_type_country_rest_get:
+    path: /rest/{identifier}
+    defaults: { _controller: u58_extended_attribute_type.controller.rest.country:getAction }
+    methods: [GET]

@@ -1,0 +1,23 @@
+parameters:
+    u58_extended_attribute_type.validator.constraint_guesser.features.class: U58\Bundle\ExtendedAttributeTypeBundle\Validator\ConstraintGuesser\FeaturesGuesser
+    u58_extended_attribute_type.validator.constraint_guesser.image_collection.class: U58\Bundle\ExtendedAttributeTypeBundle\Validator\ConstraintGuesser\ImageCollectionGuesser
+    u58_extended_attribute_type.validator.constraint_guesser.country.class: U58\Bundle\ExtendedAttributeTypeBundle\Validator\ConstraintGuesser\CountryGuesser
+
+services:
+    u58_extended_attribute_type.validator.constraint_guesser.features:
+        public: false
+        class: '%u58_extended_attribute_type.validator.constraint_guesser.features.class%'
+        tags:
+            - { name: pim_catalog.constraint_guesser.attribute }
+
+    u58_extended_attribute_type.validator.constraint_guesser.image_collection:
+        public: false
+        class: '%u58_extended_attribute_type.validator.constraint_guesser.image_collection.class%'
+        tags:
+            - { name: pim_catalog.constraint_guesser.attribute }
+
+    u58_extended_attribute_type.validator.constraint_guesser.country:
+        public: false
+        class: '%u58_extended_attribute_type.validator.constraint_guesser.country.class%'
+        tags:
+            - { name: pim_catalog.constraint_guesser.attribute }

@@ -1,0 +1,8 @@
+parameters:
+    u58_catalog.normalizer.indexing_product.features.class: U58\Bundle\ExtendedAttributeTypeBundle\Normalizer\Indexing\Value\FeaturesNormalizer
+
+services:
+    u58_catalog.normalizer.indexing_product.features:
+        class: '%u58_catalog.normalizer.indexing_product.features.class%'
+        tags:
+            - { name: pim_serializer.normalizer, priority: 90 }
